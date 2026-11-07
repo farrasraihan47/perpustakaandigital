@@ -8,6 +8,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 4. [the-odyssey](ebook/the-odyssey.pdf) - Homer
 5. [little-women](ebook/little-women.pdf) - Louisa May Alcott
 6. [great-expectations](ebook/great-expectations.pdf) - Charles Diksen
-7. 
+7. [dracula](ebook/dracula.pdf) - Bram Stoker
 ---
 *Powered by GitHub Pages*
