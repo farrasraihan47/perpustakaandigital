@@ -10,5 +10,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 6. [great-expectations](ebook/great-expectations.pdf) - Charles Diksen
 7. [dracula](ebook/dracula.pdf) - Bram Stoker
 8. [anna-karenina](ebook/anna-karenina.pdf) - Leo Tolstoy
+9. [1984](ebook/1984.pdf) - Geoge Orwell
 ---
 *Powered by GitHub Pages*
