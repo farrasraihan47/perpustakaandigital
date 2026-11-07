@@ -9,5 +9,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 5. [little-women](ebook/little-women.pdf) - Louisa May Alcott
 6. [great-expectations](ebook/great-expectations.pdf) - Charles Diksen
 7. [dracula](ebook/dracula.pdf) - Bram Stoker
+8. [anna-karenina](ebook/anna-karenina.pdf) - Leo Tolstoy
 ---
 *Powered by GitHub Pages*
