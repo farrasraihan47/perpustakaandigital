@@ -7,5 +7,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 3. [the-metamorphosis](ebook/the-metamorphosis.pdf) - Franz Kafka`
 4. [the-odyssey](ebook/the-odyssey.pdf) - Homer
 5. [little-women](ebook/little-women.pdf) - Louisa May Alcott
+6. [great-expectations](ebook/great-expectations.pdf) - Charles Diksen
 ---
 *Powered by GitHub Pages*
