@@ -12,5 +12,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 8. [anna-karenina](ebook/anna-karenina.pdf) - Leo Tolstoy
 9. [1984](ebook/1984.pdf) - Geoge Orwell
 10. [jane-eyre](ebook/jane-eyre.pdf) - Charlotte Brontre
+11. [Ringkasan-UGC](ebook/Ringkasan-UGC) - Farras Raihan ZA_146
 ---
 *Powered by GitHub Pages*
