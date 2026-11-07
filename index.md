@@ -6,5 +6,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 2. [Panduan Memahami Lisensi Creative Commons](ebook/Panduan%20Memahami%20Lisensi%20Creative%20Commons.pdf)- Nurul Asiah
 3. [the-metamorphosis](ebook/the-metamorphosis.pdf) - Franz Kafka`
 4. [the-odyssey](ebook/the-odyssey.pdf) - Homer
+5. [little-women](ebook/little-women.pdf) - Louisa May Alcott
 ---
 *Powered by GitHub Pages*
