@@ -3,18 +3,18 @@ Selamat Datang di Perpustakaan Digital
 Berikut ini adalah Koleksi yang dimiliki:
 ## Koleksi
 1. [cog](ebook/cog.pdf)  farras (2026) 
-2. [Panduan Memahami Lisensi Creative Commons](ebook/Panduan%20Memahami%20Lisensi%20Creative%20Commons.pdf) Nurul Asiah
-3. [the metamorphosis](ebook/the%20metamorphosis.pdf)  Franz Kafka`
-4. [the odyssey](ebook/the%20odyssey.pdf) - Homer
-5. [little women](ebook/little%20women.pdf)  Louisa May Alcott
-6. [great expectations](ebook/great%20expectations.pdf) Charles Diksen
-7. [dracula](ebook/dracula.pdf)  Bram Stoker
-8. [anna karenina](ebook/anna%20karenina.pdf)  Leo Tolstoy
-9. [1984](ebook/1984.pdf)  Geoge Orwell
-10. [jane eyre](ebook/jane%20eyre.pdf)  Charlotte Brontre
-11. [Ringkasan UGC](ebook/Ringkasan%20UGC.pdf)  Farras Raihan ZA
+2. [Panduan Memahami Lisensi Creative Commons](ebook/Panduan%20Memahami%20Lisensi%20Creative%20Commons.pdf) Nurul Asiah (2025)
+3. [the metamorphosis](ebook/the%20metamorphosis.pdf)  Franz Kafka (1915)
+4. [the odyssey](ebook/the%20odyssey.pdf)  Homer (Abad ke 8 SM)
+5. [little women](ebook/little%20women.pdf)  Louisa May Alcott (1868)
+6. [great expectations](ebook/great%20expectations.pdf) Charles Diksen (1860)
+7. [dracula](ebook/dracula.pdf)  Bram Stoker (1897)
+8. [anna karenina](ebook/anna%20karenina.pdf)  Leo Tolstoy (1873)
+9. [1984](ebook/1984.pdf)  Geoge Orwell (1984)
+10. [jane eyre](ebook/jane%20eyre.pdf)  Charlotte Brontre (1847)
+11. [Ringkasan UGC](ebook/Ringkasan%20UGC.pdf)  Farras Raihan ZA (2026)
 
-Farras Raihan Zulfananda Ariwibowo (13040124140146) D
+Farras Raihan Zulfananda Ariwibowo (13040124140146) Kelas D
 ---
 *Powered by GitHub Pages*
 
