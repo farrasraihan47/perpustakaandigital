@@ -1,2 +1,0 @@
-# perpustakaandigital
-memudahkan akses koleksi
