@@ -311,3 +311,44 @@ Uji manual mengikuti tabel checklist dosen baris per baris; deploy ke hosting (s
 - Kategori **Bantuan AI**: percakapan perancangan ini = contoh prompt & hasilnya.
 - Hambatan nyata yang bisa ditulis: tidak punya XAMPP → beralih ke Docker; PHP lokal ternyata versi rentan (PHP2Shell) → harus dikunci ke versi patch; AI perlu diarahkan agar desain tidak generik.
 - Pembagian job description mengikuti Fase 3–7 (satu modul per anggota) + Fase 0–2, 8–9 dikerjakan bersama.
+
+---
+
+## 10. Hasil pemeriksaan keamanan (Fase 8, 16 Nov 2026)
+
+### Versi komponen
+| Komponen | Versi | Status |
+|---|---|---|
+| PHP | 8.4.27 | Rilis terbaru 8.4.x; sudah menambal PHP2Shell (CVE-2026-109618/109619). Belum ada rilis 8.4.28. |
+| MySQL | 8.4.13 | Lebih baru dari 8.4.12 (patch keamanan Agustus 2026). Port database tidak dibuka ke luar container. |
+| Apache | 2.4.69 | Versi disembunyikan (`Server: Apache`). |
+| phpMyAdmin | 5.2.3 | Hanya bisa dibuka dari laptop sendiri (127.0.0.1), tidak di-deploy. |
+
+### Pemeriksaan kode (otomatis)
+- Semua 17 halaman admin memanggil `wajib_login()`.
+- Tidak ada variabel yang ditempel langsung ke SQL; dua tempat yang menyusun SQL (OPAC, Riwayat) hanya memakai nama kolom dari daftar tetap dan angka.
+- Semua output teks lewat `e()`; yang tidak lewat `e()` hanya angka, konstanta, atau label dari daftar tetap.
+- Tidak ada `eval`, `unserialize`, `exec`, upload file, `ini_set`, atau pergantian `serialize_handler` (syarat CVE-2026-115560).
+- Semua perubahan data hanya lewat POST.
+
+### Uji serangan (dinamis)
+| Uji | Hasil |
+|---|---|
+| CSRF: situs lain (127.0.0.1:8099) mengirim form hapus anggota saat petugas login | **Ditolak** — cookie `SameSite=Strict` tidak ikut terkirim. Pembanding dari situs sendiri berhasil, membuktikan form serangan valid. |
+| Cookie dibaca JavaScript | Tidak bisa (`HttpOnly`) |
+| Session fixation (ID session buatan penyerang) | Ditolak, server membuat ID baru |
+| Cookie lama dipakai setelah logout | Tidak berlaku lagi |
+| SQL injection di pencarian OPAC & riwayat | Tidak berefek |
+| XSS di judul, nama, kata kunci | Tampil sebagai teks |
+| Akses langsung `config/`, `includes/`, `database/`, `docker/`, `_form.php`, `.htaccess`, daftar isi folder | 403 |
+
+### Temuan & perbaikan selama Fase 8
+1. **Input berbentuk array** (`?q[]=x`) membuat PHP error dan membocorkan path server → diperbaiki di `includes/init.php` (semua input non-teks diubah jadi teks kosong).
+2. **Nama pengguna terlalu panjang** menyebabkan error database → ditambah batas 100 karakter.
+3. **Password lebih dari 72 karakter** diam-diam dipotong oleh bcrypt → ditambah batas 8–72 karakter.
+
+### Kelemahan yang tersisa (untuk bagian Kelemahan laporan)
+- Tidak ada pembatasan jumlah percobaan login.
+- Semua admin setara (tidak ada role), tidak ada audit log.
+- Jika petugas yang sedang login membuka link/form jahat dari situs lain, serangannya gagal tetapi petugas ikut ter-logout.
+- Di hosting, `display_errors` wajib dimatikan (di Docker sengaja dinyalakan untuk belajar).

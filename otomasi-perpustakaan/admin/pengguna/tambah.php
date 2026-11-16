@@ -19,11 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nama === '') {
         $kesalahan[] = 'Nama wajib diisi.';
     }
+    if (mb_strlen($nama) > 100) {
+        $kesalahan[] = 'Nama terlalu panjang (maksimal 100 karakter).';
+    }
     if (!preg_match('/^[a-zA-Z0-9_.]{3,50}$/', $username)) {
         $kesalahan[] = 'Username 3–50 karakter, hanya huruf, angka, titik, atau garis bawah.';
     }
-    if (strlen($password) < 8) {
-        $kesalahan[] = 'Password minimal 8 karakter.';
+    if (strlen($password) < 8 || strlen($password) > 72) {
+        $kesalahan[] = 'Password 8 sampai 72 karakter.';
     }
     if ($password !== $password2) {
         $kesalahan[] = 'Ulangi password tidak sama.';
@@ -75,11 +78,11 @@ require __DIR__ . '/../../includes/admin_atas.php';
         <div class="row g-3 mb-4">
             <div class="col-sm-6">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" name="password" minlength="8" required autocomplete="new-password">
+                <input class="form-control" type="password" id="password" name="password" minlength="8" maxlength="72" required autocomplete="new-password">
             </div>
             <div class="col-sm-6">
                 <label class="form-label" for="password2">Ulangi password</label>
-                <input class="form-control" type="password" id="password2" name="password2" minlength="8" required autocomplete="new-password">
+                <input class="form-control" type="password" id="password2" name="password2" minlength="8" maxlength="72" required autocomplete="new-password">
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Simpan Pengguna</button>

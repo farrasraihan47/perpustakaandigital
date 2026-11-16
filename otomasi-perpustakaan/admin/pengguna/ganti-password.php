@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!password_verify($password_lama, $user['password_hash'])) {
         $kesalahan[] = 'Password lama salah.';
     }
-    if (strlen($password_baru) < 8) {
-        $kesalahan[] = 'Password baru minimal 8 karakter.';
+    if (strlen($password_baru) < 8 || strlen($password_baru) > 72) {
+        $kesalahan[] = 'Password baru 8 sampai 72 karakter.';
     }
     if ($password_baru !== $password_baru2) {
         $kesalahan[] = 'Ulangi password baru tidak sama.';
@@ -60,12 +60,12 @@ require __DIR__ . '/../../includes/admin_atas.php';
         </div>
         <div class="mb-3">
             <label class="form-label" for="password_baru">Password baru</label>
-            <input class="form-control" type="password" id="password_baru" name="password_baru" minlength="8" required autocomplete="new-password">
-            <div class="form-text">Minimal 8 karakter.</div>
+            <input class="form-control" type="password" id="password_baru" name="password_baru" minlength="8" maxlength="72" required autocomplete="new-password">
+            <div class="form-text">8 sampai 72 karakter.</div>
         </div>
         <div class="mb-4">
             <label class="form-label" for="password_baru2">Ulangi password baru</label>
-            <input class="form-control" type="password" id="password_baru2" name="password_baru2" minlength="8" required autocomplete="new-password">
+            <input class="form-control" type="password" id="password_baru2" name="password_baru2" minlength="8" maxlength="72" required autocomplete="new-password">
         </div>
         <button class="btn btn-primary" type="submit">Ganti Password</button>
     </form>

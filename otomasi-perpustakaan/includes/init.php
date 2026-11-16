@@ -7,6 +7,12 @@ require __DIR__ . '/fungsi.php';
 
 date_default_timezone_set('Asia/Jakarta');
 
+// Pengunjung nakal bisa mengirim input berbentuk daftar, misalnya ?q[]=x,
+// yang membuat fungsi seperti trim() error. Semua input yang bukan teks
+// diubah menjadi teks kosong, jadi setiap halaman cukup mengurus teks biasa.
+$_GET  = array_map(fn($nilai) => is_string($nilai) ? $nilai : '', $_GET);
+$_POST = array_map(fn($nilai) => is_string($nilai) ? $nilai : '', $_POST);
+
 // Jika query error, PHP langsung berhenti dan menampilkan pesan (memudahkan mencari kesalahan)
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
