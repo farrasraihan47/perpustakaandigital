@@ -1,0 +1,15 @@
+# Jangan tampilkan daftar isi folder
+Options -Indexes
+
+# File yang namanya diawali "_" hanya potongan halaman, tidak boleh dibuka langsung.
+# File konfigurasi Docker juga tidak boleh dibuka dari browser.
+<FilesMatch "^(_.*|docker-compose\.yml|README\.md)$">
+    Require all denied
+</FilesMatch>
+
+# Header keamanan dasar
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "same-origin"
+</IfModule>
