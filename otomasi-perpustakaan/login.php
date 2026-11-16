@@ -43,7 +43,7 @@ $judul_halaman = 'Masuk Petugas';
 require __DIR__ . '/includes/publik_atas.php';
 ?>
 
-<div class="row justify-content-center align-items-center g-5 py-lg-5">
+<div class="row justify-content-center align-items-center g-4 g-lg-5 py-lg-5">
     <div class="col-lg-5">
         <div class="alis">Khusus petugas</div>
         <h1 style="font-size: clamp(2.4rem, 5vw, 3.4rem)">Meja sirkulasi.</h1>
