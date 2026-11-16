@@ -11,6 +11,9 @@ services:
       - "127.0.0.1:8088:80"
     volumes:
       - .:/var/www/html
+    environment:
+      # On = error PHP tampil (belajar). Off = disembunyikan (WAJIB saat tunnel/online).
+      TAMPILKAN_ERROR: ${TAMPILKAN_ERROR:-On}
     depends_on:
       - db
     mem_limit: 512m
