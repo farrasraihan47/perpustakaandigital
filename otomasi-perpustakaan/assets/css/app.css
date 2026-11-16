@@ -215,7 +215,7 @@ a { text-underline-offset: 3px; }
     linear-gradient(var(--stempel), var(--stempel)),
     repeating-linear-gradient(to bottom, transparent 0 25px, var(--biru-garis) 25px 26px);
   background-size: 100% 1px, 100% 100%;
-  background-position: 0 3.1rem, 0 3.1rem;
+  background-position: 0 3.75rem, 0 3.75rem;
   background-repeat: no-repeat, repeat-y;
   border: 1px solid #D9CEB9;
   border-radius: 3px;
@@ -248,7 +248,7 @@ a.kartu-katalog:hover {
 }
 .kartu-katalog .kepala-kartu {
   display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem;
-  height: 2.25rem;
+  height: 2.75rem;
   margin-bottom: .55rem;
 }
 .nomor-panggil {
@@ -318,6 +318,7 @@ a.kartu-katalog:hover {
   margin-left: 1.25rem;
 }
 .kepala nav a:hover { color: var(--stempel); }
+.kepala nav a:first-child { margin-left: 0; }
 
 .kaki {
   border-top: 1px solid var(--garis);
@@ -488,8 +489,17 @@ a.kartu-katalog:hover {
 }
 .meja .kepala-meja h1 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin: .2rem 0 0; }
 
+/* Di ponsel: sidebar disembunyikan dan muncul sebagai panel geser (offcanvas) */
 @media (max-width: 991.98px) {
-  .laci.offcanvas-lg { --bs-offcanvas-bg: var(--laci); --bs-offcanvas-width: 270px; }
+  .laci { width: 0; }
+  .laci .offcanvas-lg {
+    --bs-offcanvas-bg: var(--laci);
+    --bs-offcanvas-color: #DCE5DC;
+    --bs-offcanvas-width: 270px;
+  }
+}
+@media (min-width: 992px) {
+  .laci .offcanvas-lg { height: 100%; }
 }
 
 /* ---------- Ledger (tabel buku besar) ---------- */

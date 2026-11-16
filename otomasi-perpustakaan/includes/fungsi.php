@@ -36,6 +36,20 @@ function ambil_pesan()
     return $pesan;
 }
 
+// Menampilkan pesan dalam bentuk slip + stempel (dipanggil di layout)
+function tampil_pesan()
+{
+    $pesan = ambil_pesan();
+    if (!$pesan) {
+        return;
+    }
+    $sukses = $pesan['jenis'] === 'sukses';
+    echo '<div class="pesan ' . ($sukses ? 'sukses' : 'gagal') . '" role="status">';
+    echo '<span class="stempel jatuh ' . ($sukses ? 'hijau' : '') . '">' . ($sukses ? 'Berhasil' : 'Ditolak') . '</span>';
+    echo '<div>' . e($pesan['teks']) . '</div>';
+    echo '</div>';
+}
+
 // Dipanggil di baris atas setiap halaman admin.
 // Kalau belum login, pengunjung dikirim ke halaman login.
 function wajib_login()
@@ -69,6 +83,21 @@ function hitung_terlambat($jatuh_tempo, $tanggal_kembali)
     $selisih_detik = strtotime($tanggal_kembali) - strtotime($jatuh_tempo);
     $hari = (int) floor($selisih_detik / 86400);
     return max(0, $hari);
+}
+
+// Nomor panggil sederhana seperti di label punggung buku, 3 baris:
+//   1. lokasi rak                               contoh: C-07
+//   2. 3 huruf awal nama belakang pengarang     contoh: ORW  (George Orwell)
+//   3. huruf awal judul (huruf kecil)           contoh: n    (Nineteen...) / 1 (1984)
+function nomor_panggil($buku)
+{
+    $kata_pengarang = explode(' ', trim($buku['pengarang']));
+    $nama_belakang = end($kata_pengarang);
+    return [
+        $buku['lokasi_rak'] ?: '—',
+        mb_strtoupper(mb_substr($nama_belakang, 0, 3)),
+        mb_strtolower(mb_substr(trim($buku['judul']), 0, 1)),
+    ];
 }
 
 // Mengecek alamat link e-book: harus kosong, atau diawali http:// / https://
