@@ -79,8 +79,10 @@ function aktif($nama_menu)
             </div>
             <?php if (!empty($tombol_kepala)): ?>
                 <div class="d-flex gap-2 flex-wrap">
+                    <?php $tombol_pertama = true; ?>
                     <?php foreach ($tombol_kepala as $teks => $alamat): ?>
-                        <a class="btn btn-primary" href="<?= url($alamat) ?>"><?= e($teks) ?></a>
+                        <a class="btn <?= $tombol_pertama ? 'btn-primary' : 'btn-garis' ?>" href="<?= url($alamat) ?>"><?= e($teks) ?></a>
+                        <?php $tombol_pertama = false; ?>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
